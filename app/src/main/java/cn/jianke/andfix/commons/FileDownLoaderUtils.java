@@ -64,24 +64,25 @@ public class FileDownLoaderUtils {
      */
     public void downLoaderFile(Context context, String fileUrl,
                                String destinationDir, String fileName){
-        try {
-            // 若上下文、下载文件远程地址、下载目录、下载文件名称均不为空则开始下载
-            if (context != null
-                    && StringUtil.isNotEmpty(fileUrl)
-                    && StringUtil.isNotEmpty(destinationDir)
-                    && StringUtil.isNotEmpty(fileName)){
-                downloadManager = (DownloadManager) context.getSystemService(DOWNLOAD_SERVICE);
-                Uri uri = Uri.parse(fileUrl);
-                DownloadManager.Request request = new DownloadManager.Request(uri);
-                // 指定下载路径
-                request.setDestinationInExternalPublicDir(destinationDir, fileName);
-                // 设置Notification隐藏
-                request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_HIDDEN);
-                // 下载id，可以用来查询用
-                downLoadId = downloadManager.enqueue(request);
-            }
-        }catch (Exception ex){
-        }
+        System.out.println("dddddddddddddddddddd fileName = " + fileName);
+//        try {
+//            // 若上下文、下载文件远程地址、下载目录、下载文件名称均不为空则开始下载
+//            if (context != null
+//                    && StringUtil.isNotEmpty(fileUrl)
+//                    && StringUtil.isNotEmpty(destinationDir)
+//                    && StringUtil.isNotEmpty(fileName)){
+//                downloadManager = (DownloadManager) context.getSystemService(DOWNLOAD_SERVICE);
+//                Uri uri = Uri.parse(fileUrl);
+//                DownloadManager.Request request = new DownloadManager.Request(uri);
+//                // 指定下载路径
+//                request.setDestinationInExternalPublicDir(destinationDir, fileName);
+//                // 设置Notification隐藏
+//                request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_HIDDEN);
+//                // 下载id，可以用来查询用
+//                downLoadId = downloadManager.enqueue(request);
+//            }
+//        }catch (Exception ex){
+//        }
     }
 
     /**

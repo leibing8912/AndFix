@@ -8,8 +8,8 @@ android {
         applicationId "cn.jianke.andfix"
         minSdkVersion 15
         targetSdkVersion 22
-        versionCode 1
-        versionName "1.0"
+        versionCode 40
+        versionName "4.6.0"
     }
     buildTypes {
         release {
@@ -31,4 +31,9 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.2.0'
     compile 'com.alipay.euler:andfix:0.5.0@aar'
+    // 网络请求 retrofit + okhttp + gson
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 }

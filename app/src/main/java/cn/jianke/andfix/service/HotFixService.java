@@ -7,13 +7,19 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
+
+import com.alipay.euler.andfix.BuildConfig;
+
 import cn.jianke.andfix.R;
 import cn.jianke.andfix.commons.FileDownLoaderUtils;
+import cn.jianke.andfix.commons.StringUtil;
+import cn.jianke.andfix.httprequest.ApiCallback;
+import cn.jianke.andfix.httprequest.api.ApiHotFixPatch;
 import cn.jianke.andfix.module.HotFixPatch;
 
 /**
  * @className: HotFixService
- * @classDescription: 热修复服务
+ * @classDescription: 热修复服务(此方法暂停，用进入首页方式触发请求热更新数据方案)
  * @author: leibing
  * @createTime: 2016/09/10
  */
@@ -26,7 +32,7 @@ public class HotFixService extends Service{
     private Runnable hotFixRunnable = new Runnable() {
         @Override
         public void run() {
-            // 此处向服务端请求是否需要更新热修复包
+            // 向服务端请求是否需要更新热修复包
             updateHotFixPatch();
             // 每隔一段时间向服务端请求一次数据
             hotFixHandler.postDelayed(hotFixRunnable, HOT_FIX_TIME);
@@ -34,9 +40,9 @@ public class HotFixService extends Service{
             startForeground();
         }
     };
-    
+
     /**
-     *
+     * 向服务端请求是否需要更新热修复包
      * @author leibing
      * @createTime 2016/12/3
      * @lastModify 2016/12/3
@@ -44,10 +50,6 @@ public class HotFixService extends Service{
      * @return
      */
     private void updateHotFixPatch() {
-        // 请求地址暂定（通过api方式获取）
-        String fileUrl = "";
-        FileDownLoaderUtils.getInstance().downLoaderFile(HotFixService.this, fileUrl,
-                HotFixPatch.JIANKE_PATCHES, HotFixPatch.APATCH_NAME);
     }
 
     @Override
